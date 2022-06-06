@@ -22,7 +22,7 @@ const NavButton = ({ title, cFunc, icon, color, dotColor }) => (
 
 
 const Navbar = () => {
-  const { activeMenu, setActiveMenu, isClicked, handleClick, screenSize, setScreenSize } = useStateContext();
+  const { activeMenu, setActiveMenu, isClicked, handleClick, screenSize, setScreenSize, currentColor } = useStateContext();
 
   useEffect(() => {
     const handleResize = () => {
@@ -48,7 +48,7 @@ const Navbar = () => {
       <NavButton
         title="Menu"
         cFunc={() => setActiveMenu(!activeMenu)}
-        color="blue"
+        color={currentColor}
         icon={<AiOutlineMenu />}
       />
 
@@ -57,21 +57,21 @@ const Navbar = () => {
         <NavButton
           title="Cart"
           cFunc={() => handleClick('cart')}
-          color="blue"
+          color={currentColor}
           icon={<FiShoppingCart />}
         />
         <NavButton
           title="Chat"
           dotColor="#03C9D7"
           cFunc={() => handleClick('chat')}
-          color="blue"
+          color={currentColor}
           icon={<BsChatLeftDots />}
         />
         <NavButton
           title="Notifications"
           dotColor="#03C9D7"
           cFunc={() => handleClick('notification')}
-          color="blue"
+          color={currentColor}
           icon={<RiNotification3Line />}
         />
         <TooltipComponent content="Profile" position="BottomCenter">
